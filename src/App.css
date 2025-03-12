@@ -2,37 +2,90 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.heart {
+  position: relative;
+  width: 90px; /* Giảm kích thước thân để mềm mại hơn */
+  height: 90px;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: none ; /* Làm mịn các góc vuông */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 90px; /* Kích thước nhỏ hơn một chút */
+  height: 90px;
+  background-color: pink;
+  border-radius: 50%;
 }
+
+.heart::before {
+  top: -45px; /* Dịch xuống để liền mạch hơn */
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 45px; /* Dịch lại một chút để mềm mại hơn */
+}
+
+/* Giữ chữ thẳng */
+.heart .text {
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 2;
+}
+
+
+
+
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.falling-heart {
+  position: absolute;
+  font-size: 20px;
+}
+
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.small-heart {
+  position: absolute;
+  font-size: 15px;
+  animation: floatUp 4s linear infinite;
+}
+
